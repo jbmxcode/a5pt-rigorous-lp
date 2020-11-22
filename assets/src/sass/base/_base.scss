@@ -1,0 +1,32 @@
+* { box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+html { scroll-behavior: smooth; }
+
+body {
+	margin: 0;
+	padding: 0;
+	font: {
+		size: $base-font-size;
+		family: $primary-font;
+	}
+	color: $c-text;
+}
+
+figure { margin: 0; }
+
+a { transition: all .8s; }
+
+.row {
+	padding: 0 1rem;
+
+	@include respond-to($vp-max) {
+		margin: 0 6.875rem;
+
+		.full-width & {
+			margin: 0;
+			padding: 0;
+		}
+	}
+}

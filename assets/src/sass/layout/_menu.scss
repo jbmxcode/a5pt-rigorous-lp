@@ -1,0 +1,121 @@
+.site-menu {
+    ul { @include stripped-list; }
+}
+
+.primary-menu {
+    @include hide-large;
+
+    &__list { @include stripped-list; }
+
+    a { 
+        @include underline-from-left($border-size: 1px);
+        font-weight: 300;
+        text-decoration: none;
+        color: $c-white; 
+        letter-spacing: 6px;
+    }
+
+    @include respond-to($vp-large) {
+        position: relative;
+        z-index: 9;
+        margin-top: 40px;
+
+        &__list {
+            @include flex-all($justify: flex-end);
+        }
+
+        li { margin-left: 70px; }
+    }
+}
+
+.secondary-menu {
+    &__list {
+        @include flex-all(column, center, center, wrap);
+        @include stripped-list;
+        margin: 0;
+
+        li { margin: 1rem 2rem; }
+
+        a {
+            padding-left: 6px;
+            font-weight: 700;
+            text: {
+                decoration: none;
+                transform: uppercase;
+            }
+            letter-spacing: 6px;
+            color: $c-text;
+
+            @include hover-color($primary-color);
+        }
+
+        @include respond-to($vp-mid) { flex-direction: row; }
+    }
+}
+
+.social-menu {
+    .title { 
+        font-weight: 500;
+        text-align: center; 
+        letter-spacing: 6.3px;
+    }
+
+    &__list { 
+        @include flex-all($justify: center, $wrap: wrap); 
+
+        li { margin: 0 2rem; }
+
+        a {
+            svg { fill: $c-text; }
+
+            @include hover {
+                svg { fill: $c-black; }
+            }
+        }
+    }
+}
+
+.tertiary-menu {
+    &__list {
+        @include flex-all(column, center, center, wrap);
+
+        li { margin: 5px 0; }
+
+        a { 
+            @include underline-from-left($border-size: 1px, $border-color: $color-over-secondary);
+            padding-left: 5px;
+            font: {
+                size: 0.75rem; 
+                weight: 300;
+            }
+            text-decoration: none;
+            letter-spacing: 5px;
+            color: $color-over-secondary;
+        }
+
+        @include respond-to($vp-mid) { 
+            flex-direction: row; 
+
+            li {        
+                margin: 0 1rem 0 0;
+                padding-right: 1rem;
+
+                @include mask {
+                    top: 50%;
+                    right: 0;
+                    width: 1px;
+                    height: 12px;
+                    background-color: $color-over-secondary;
+                    transform: translateY(-50%);
+                }
+    
+                &:last-child {
+                    margin-right: 0;
+                    padding-right: 0;
+    
+                    &:before { content: none; }
+                }
+            }
+        }
+    }
+}

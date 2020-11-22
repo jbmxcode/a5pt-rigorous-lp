@@ -1,0 +1,113 @@
+.hero {
+    &-wrapper {
+        position: relative;
+        z-index: 3;
+
+        .row { 
+            margin: 0; 
+            padding: 0; 
+        }
+
+        @include respond-to($vp-max) {
+            height: 1080px;
+        }
+    }
+
+    .content {
+        &-inner { position: relative; }
+
+        &-summary {
+            @include flex-all(column, center, center);
+            order: 2;
+            position: absolute;
+            top: 50%;
+            right: 0;
+            z-index: 3;
+            width: 100%;
+            transform: translateY(-50%);
+
+            @include respond-to($vp-max) {
+                order: 1;
+                max-width: 936px;
+            }
+        }
+
+        &-text {
+            @include width-constrain(578px);
+            padding-right: 7px;
+            font: {
+                size: 1.125rem;
+                weight: 300;
+            }
+            text-align: center;
+            letter-spacing: 7px;
+            color: $c-white;
+        }
+
+        &-image {
+            width: 100%;
+            height: 100vw;
+
+            > div { 
+                width: 100%;
+                height: 100%; 
+
+                @include mask-fullsize { 
+                    z-index: 2;
+                    background-color: rgba($c-black, .5); 
+                }
+            }
+
+            img {
+                display: block;
+                max-width: 100%;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            @include respond-to($vp-mid) { height: 500px; }
+
+            @include respond-to($vp-max) {         
+                max-width: 936px;
+                width: 100%;
+                height: 1464px; 
+                margin: 0 0 0 auto;
+                -webkit-mask-image: url(../images/mask-hero.png);
+                mask-image: url(../images/mask-hero.png);
+            }
+        }
+    }
+
+    .swiper-button-prev, .swiper-button-next {
+        top: auto;
+        bottom: 5%;
+        z-index: 9;
+        width: 15px;
+        height: 26px;
+
+        &:after { 
+            width: 100%;
+            height: 100%;
+            font-size: 0;
+        }
+
+        @include respond-to($vp-max) { top: 62%; }
+    }
+
+    .swiper-button-prev, 
+    .swiper-container-rtl .swiper-button-next {         
+        background-image: url(../images/btn-prev.svg); 
+        @include bg-cover;
+
+        @include respond-to($vp-max) { left: calc(50% - 40px); }
+    }
+    
+    .swiper-button-next, 
+    .swiper-container-rtl .swiper-button-prev {         
+        background-image: url(../images/btn-next.svg); 
+        @include bg-cover;
+
+        @include respond-to($vp-max) { right: calc(50% - 40px); }
+    }
+}

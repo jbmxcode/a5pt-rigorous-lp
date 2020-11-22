@@ -1,0 +1,116 @@
+.services {
+    &-wrapper {
+        padding-top: 5rem;
+        background: {
+            color: $c-grey-light;
+            image: url(../images/wave.jpg);
+            repeat: no-repeat;
+            position: left top;
+            size: 100% auto;
+        }
+
+        @include respond-to($vp-large) { 
+            margin-top: -112px; 
+            padding-top: 20rem;
+        }
+    }
+
+    .content {
+        &-summary {
+            position: relative;
+            z-index: 2;
+
+            @include respond-to($vp-large) {
+                margin-top: -200px;
+            }
+
+            @include respond-to($vp-max) {
+                margin-top: -90px;
+            }
+        }
+
+        &-list {
+            position: relative;
+
+            ul { @include flex-all($justify: center, $wrap: wrap); }
+
+            li {
+                @include flex-all(column, center, center);
+                width: 280px;
+                margin: 10px;
+                padding: 2rem 0;
+                text-align: center;
+                box-shadow: 0px 3px 6px #00000029;
+                border-radius: 16px;
+                background-color: $c-white; 
+
+                svg { margin-bottom: 5px; }
+
+                &:nth-child(1) .action-link { 
+                    box-shadow: 0px 21px 39px #D700FF82;
+                    background: transparent linear-gradient(180deg, #CF8BDC 0%, #D700FF 100%) 0% 0% no-repeat padding-box; 
+                }
+
+                &:nth-child(2) .action-link { 
+                    box-shadow: 0px 21px 39px #5400FF82;
+                    background: transparent linear-gradient(180deg, #9980CB 0%, #5400FF 100%) 0% 0% no-repeat padding-box; 
+                }
+
+                &:nth-child(3) .action-link { 
+                    box-shadow: 0px 21px 39px #FF910082;
+                    background: transparent linear-gradient(180deg, #E5C9A4 0%, #FF9100 100%) 0% 0% no-repeat padding-box; 
+                }
+            }
+
+            .content-text {
+                width: auto;
+                margin: 0 0 1rem;
+                padding: 0 1.5rem;
+                line-height: 1.65;
+    
+                .first-line {
+                    display: block;
+                    font: {
+                        size: 1.75rem;
+                        weight: 900;
+                    }
+                    text-transform: uppercase;
+                }
+
+                .second-line { font-size: 1.125rem; }
+            }
+
+            @include respond-to($vp-large) {
+                margin-top: -120px;
+            }
+
+            @include respond-to($vp-max) {
+                @include width-constrain;
+                margin-top: -165px;
+
+                ul { 
+                    flex-wrap: nowrap; 
+                    justify-content: space-between;
+                }
+
+                li { 
+                    width: 434px;
+                    height: 467px;
+                    margin: 0;
+                    padding: 0;
+                }
+            }
+        }
+
+        &-text {
+            margin: 3rem 0;
+            font-weight: 300;
+            text-align: center;
+            line-height: 2.375rem;
+
+            p { margin: 0; }
+
+            @include respond-to($vp-large) { margin: 5rem 0; }            
+        }
+    }
+}

@@ -14,7 +14,11 @@
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-    <?php wp_body_open(); ?>
+    <?php 
+    if ( function_exists( 'wp_body_open' ) ) {
+        wp_body_open(); 
+    }
+    ?>
 
     <header id="site_header" class="site-header">
         <div class="site-header__row">
@@ -35,7 +39,7 @@
                     </div>
                 </div>
                 <div class="site-menu">
-                    {{> menus/primary-menu }}
+                    <?php get_template_part( 'template-parts/header/nav' ); ?>
                 </div>
 
             </div>

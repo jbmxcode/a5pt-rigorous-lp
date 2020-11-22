@@ -1,0 +1,68 @@
+.quicklinks-hero {
+    width: 100%;
+    padding: 1rem 0;
+    background-color: $primary-color;
+
+    h2 { margin: 0; }
+
+    .items-list {
+        @include flex-all($justify: space-around, $wrap: wrap);
+        @include width-constrain(650px);
+    }
+
+    li { margin: 1rem 0; }
+
+    a {
+        @include flex-all(column, center, center);
+        padding-right: 6px;
+        font-weight: 300;
+        text: {
+            transform: uppercase;
+            decoration: none;
+        }
+        letter-spacing: 6px;
+        color: $color-over-primary;
+
+        @include hover-color($secondary-color) {
+            svg {
+                animation: {
+                    name: bob-float, bob;
+                    duration: .3s, 1.5s;
+                    delay: 0s, .3s;
+                    timing-function: ease-out, ease-in-out;
+                    iteration-count: 1, infinite;
+                    fill-mode: forwards;
+                    direction: normal, alternate;
+                }
+            }
+        }
+
+        svg {
+            @include hacks;
+	        @include bob-keyframes(-8px);
+        }
+    }
+
+    .content-text { 
+        display: block; 
+    }
+
+    @include respond-to($vp-mid) {
+        .items-list { justify-content: space-between; }
+    }
+
+    @include respond-to($vp-large) {
+        position: absolute;
+        top: calc(100% - 200px);
+        left: 0;
+        width: 650px;
+        background-color: transparent;
+
+        .items-list { flex-wrap: nowrap; }
+    }
+
+    @include respond-to($vp-max) {
+        left: 6.875rem;
+        width: 650px;
+    }
+}
