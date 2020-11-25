@@ -1,0 +1,125 @@
+.projects {
+    position: relative;
+    
+    &-wrapper {
+        background-color: $c-grey-light;
+
+        @include mask-fullsize {
+            height: 638px;
+            background-color: $c-white;
+        }
+    }
+
+    .content {
+        &-tabs {
+            ul { 
+                @include stripped-list;
+                padding: 2rem 0;
+                text-align: center;
+            } 
+
+            li {
+                margin: 10px 0;
+
+                a { 
+                    @include underline-from-left($border-size: 1px, $border-color: $primary-color);
+                    padding-left: 7px;
+                    font-size: 1.125rem;
+                    text: {
+                        transform: uppercase;
+                        decoration: none; 
+                    }
+                    letter-spacing: 7px;
+                    color: $c-text;
+
+                    &.active { color: $primary-color; }
+
+                    @include hover-color($c-black);
+                }
+            }
+
+            @include respond-to($vp-mid) {
+                ul { @include flex-all($justify: center, $wrap: wrap); }
+
+                li { margin: { left: 2rem; right: 2rem; } }
+            }
+
+            @include respond-to($vp-large) {
+                ul { padding: 8rem 0 6rem; }
+            }
+        }
+
+        &-title { line-height: 1; }
+
+        &-list {
+            @include flex-all($justify: space-around, $wrap: wrap); 
+            position: relative;
+
+            .item { 
+                width: 300px; 
+                margin: 10px 0;
+                box-shadow: 0px 3px 6px #00000029;
+                border-radius: 16px;
+                background-color: $c-white;
+                overflow: hidden;
+    
+                &-img {
+                    height: 292px;
+        
+                    img { 
+                        width: 100%;
+                        height: 100%; 
+                        object-fit: cover;
+                    }
+                }
+        
+                &-summary {
+                    padding: 1.875rem;
+        
+                    > * { margin: 0; }
+                }
+    
+                &-tags {
+                    padding: 0 1.875rem 1.875rem;
+        
+                    ul { @include flex-all($wrap: wrap); }
+        
+                    li {
+                        margin-right: 1rem;
+        
+                        a {
+                            font-weight: 900;
+                            text: {
+                                decoration: none;
+                                transform: uppercase;
+                            }
+
+                            @include hover-color($c-text);
+                        }
+                    }
+                }
+            }
+
+            @include respond-to($vp-large) {
+                margin-top: -100px;
+            }
+
+            @include respond-to($vp-max) {
+                @include width-constrain;
+                justify-content: space-between;
+                margin-top: -145px;
+
+                .item { 
+                    flex: 0 1 calc(50% - 2rem); 
+                    margin: 2rem 0;
+                }
+            }
+        }
+
+        &-links {
+            text-align: center;
+
+            > * { margin: 2rem 0 4rem; }
+        }
+    }
+}

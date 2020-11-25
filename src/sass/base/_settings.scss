@@ -1,0 +1,67 @@
+// Responsive
+
+$vp-small				: 320px;	// small size 
+$vp-mid					: 768px;	// mid size
+$vp-large				: 1024px;	// large size
+
+$vp-max					: 1422px;	// max viewport
+
+$site-width				: $vp-max;
+
+// Logos Sizes
+
+$header-logo-height		: 150px;
+$header-logo-width		: 150px;
+$footer-logo-height		: 173px;
+$footer-logo-width		: 523px;
+
+// Colors
+
+$c-white                : rgb(255, 255, 255);
+$c-black                : rgb(0, 0, 0);
+$c-grey                 : rgb(204, 204, 204);
+$c-grey-light           : rgb(242, 242, 242);
+$c-grey-dark            : rgb(51, 51, 51);
+$c-orange               : rgb(255, 145, 0);
+$c-pure-blue            : rgb(0, 185, 255);
+$c-purple               : rgb(84, 0, 255);
+$c-pink                 : rgb(215, 0, 255);
+
+$c-text                 : $c-grey-dark;
+
+$primary-color			: rgb(119, 204, 109);
+$color-over-primary		: $c-white;
+
+$primary-color-glow     : rgb(90, 228, 74);
+$primary-color-dark     : rgb(27, 249, 1);
+
+$secondary-color		: rgb(51, 51, 51);
+$color-over-secondary	: $c-white;
+
+$secondary-color-glow   : rgb(70, 70, 70);
+$secondary-color-dark   : rgb(37, 37, 37);
+
+$tertiary-color		    : rgb(198, 255, 191);
+$color-over-tertiary	: $c-white;
+
+// Social Colors
+
+$facebook				: rgb(24,119,242);
+$twitter				: rgb(29,161,242);
+$youtube				: rgb(255,0,0);
+$instagram				: rgb(215,53,118);
+
+// Logos Images
+
+$header-logo-image			: "images/header_logo.png";
+$footer-logo-image			: $header-logo-image;
+
+
+// Fonts
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap');
+
+$primary-font			    : 'Poppins', sans-serif;
+
+$base-font-size			    : 16px;
+

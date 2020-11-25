@@ -1,0 +1,82 @@
+body.home {
+    background-color: $primary-color;
+
+    .site-header {        
+        &:before { content: none; }
+
+        .logo {       
+            &__name {    
+                .first-line { 
+                    @include scale-font($small-ratio: .5, $final-size: 4.3rem); 
+                }
+    
+                .second-line {
+                    font-size: 1.063rem;
+                }
+            }
+        }
+        
+        @include respond-to($vp-max) {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 836px;
+            background: {
+                color: transparent;
+                image: url(../images/bg-header.png);
+                repeat: no-repeat;
+                position: left top;
+            }
+    
+            &__row {
+                &--inner { 
+                    flex-direction: row;
+                    align-items: flex-start; 
+                    max-width: 100%;
+                    margin: 0;
+                    padding: 0;
+                }
+            }
+    
+            .site-title { 
+                flex: 1; 
+    
+                &__inner {
+                    display: inline-block;
+                    margin: 4.5rem 0 0 6.875rem;
+                }
+            }
+    
+            .site-menu { 
+                flex: 2;
+                // width: 936px; 
+                height: auto;
+                margin-left: 0;
+                margin-right: 6.875rem;
+                background-color: transparent;
+
+                &:before { content: none; }
+            }
+    
+            .logo {
+                a { 
+                    flex-direction: column;
+                    justify-content: center;
+                }
+        
+                img {
+                    width: auto;
+                    height: auto;
+                }
+                
+                &__name { 
+                    margin: 0 0 3rem 0; 
+                    text-align: center;
+
+                    .second-line { letter-spacing: 18px; }
+                }
+            }
+        }
+    }
+}

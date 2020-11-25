@@ -1,0 +1,47 @@
+.infographics {
+    position: relative;
+    z-index: 2;
+
+    @include respond-to($vp-max) {
+        @include width-constrain;
+    }
+    
+    &-wrapper {
+        @include mask-fullsize("after") { background-color: rgba($c-black, .8); }
+        padding: 5rem 0; 
+    }
+
+    .content {
+        &-list {
+            ul { @include flex-all($justify: space-around, $wrap: wrap); }
+
+            li { 
+                margin: 2rem 0; 
+                text-align: center;
+            }
+
+            .info-num {
+                @include scale-font($small-ratio: .5, $final-size: 3.438rem);
+                font-weight: 600;
+                color: $c-white;
+            }
+
+            .info-name {
+                padding-left: 8px;
+                font: {
+                    size: 1.25rem;
+                    weight: 300;
+                }
+                text-transform: uppercase;
+                letter-spacing: 8px;
+                color: $primary-color;
+            }
+
+            @include respond-to($vp-max) {
+                @include width-constrain;
+
+                ul { justify-content: space-between; }
+            }
+        }
+    }
+}
