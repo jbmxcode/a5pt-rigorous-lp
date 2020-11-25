@@ -8,7 +8,7 @@
     &__list { @include stripped-list; }
 
     a { 
-        @include underline-from-left($border-size: 1px);
+        @include underline-from-left($border-size: 1px, $border-color: $color-over-primary);
         font-weight: 300;
         text-decoration: none;
         color: $c-white; 
@@ -19,6 +19,10 @@
         position: relative;
         z-index: 9;
         margin-top: 40px;
+
+        .home & {
+            a:before { background-color: $primary-color; }
+        }
 
         &__list {
             @include flex-all($justify: flex-end);

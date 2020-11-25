@@ -1,6 +1,6 @@
-import Swiper, { Navigation } from 'swiper';
+import Swiper, { Navigation, Autoplay } from 'swiper';
 
-Swiper.use([Navigation]);
+Swiper.use([Navigation, Autoplay]);
 
 const swiper = new Swiper('.swiper-container', {  
     centeredSlides: true,

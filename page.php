@@ -1,6 +1,6 @@
 <?php
 /**
- * Main template
+ * Page template
  * 
  * @package Rigorous
  */

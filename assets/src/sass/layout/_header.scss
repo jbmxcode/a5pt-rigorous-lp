@@ -1,6 +1,14 @@
 .site-header {
     background-color: $c-white;
 
+    @include mask {
+        top: 0;
+        right: 0;
+        width: calc((100% - #{$site-width}) / 2);
+        height: 100%;
+        background-color: $primary-color;
+    }
+
     &__row--inner { 
         @include flex-all(column, center, center); 
         padding: 2rem 0;
@@ -22,13 +30,18 @@
             @include flex-all(column, center, center);
             text-decoration: none; 
         }
+        
+        img {
+            width: auto;
+            height: 75px;
+        }
 
         &__name {
             text-align: center;
             line-height: 1.2;
 
             .first-line { 
-                @include scale-font($small-ratio: .5, $final-size: 4.5rem); 
+                @include scale-font($small-ratio: .5, $final-size: 2.5rem); 
                 display: block;
                 font-weight: 900;
                 color: $primary-color;
@@ -39,7 +52,7 @@
                 margin: 1rem 0;
                 padding-left: 18px;
                 font: {
-                    size: 1.063rem;
+                    size: 0.875rem;
                     weight: 300;
                 }
                 letter-spacing: 18px;
@@ -49,45 +62,67 @@
     }
     
     @include respond-to($vp-max) {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 836px;
-        background: {
-            color: transparent;
-            image: url(../images/bg-header.png);
-            repeat: no-repeat;
-            position: left top;
-        }
+        height: 100px;
 
         &__row {
+            height: 100%;
+
             &--inner { 
+                @include width-constrain;
                 flex-direction: row;
-                align-items: flex-start; 
+                align-items: center; 
+                height: 100%;
                 padding: 0;
             }
         }
 
         .site-title { 
-            flex: 1; 
+            flex: none; 
 
             &__inner {
-                display: inline-block;
-                margin: 4.5rem 0 0 6.875rem;
+                display: block;
             }
         }
 
         .site-menu { 
-            width: 936px; 
-            margin-right: 6.875rem;
+            flex: 1;
+            height: 100%;
+            margin-left: 6.875rem;
+            background-color: $primary-color;
+
+            @include mask {
+                top: 0;
+                left: 0;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 100px 100px 0 0;
+                border-color: $color-over-primary transparent transparent transparent;
+            }
         }
 
-        .logo__name { 
-            margin-bottom: 3rem; 
-            line-height: 1.5;
+        .logo {
+            a { 
+                flex-direction: row; 
+                justify-content: flex-start;
+            }
+        
+            img {
+                width: auto;
+                height: 75px;
+            }
 
-            .second-line { margin: 0; }
+            &__name { 
+                margin: 0 0 0 .5rem; 
+                text-align: left;
+                line-height: 1.5;
+
+                .second-line { 
+                    margin: 0; 
+                    padding: 0;
+                    letter-spacing: 10px;
+                }
+            }
         }
     }
 }
